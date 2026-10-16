@@ -1,8 +1,17 @@
+import HeroRace from '../../Components/HeroRace/HeroRace';
+import { races } from '../../data/races';
+import '../../styles/dashboard.css';
+
 function Home() {
+  const nextRace = races.find((race) => race.status === 'upcoming');
+
+  if (!nextRace) {
+    return <p className="home">Season complete — no upcoming races.</p>;
+  }
+
   return (
-    <div style={{ padding: '64px 0' }}>
-      <h1>F1 Race Hub</h1>
-      <p>Home Dashboard Phase 2 mein banega.</p>
+    <div className="home">
+      <HeroRace race={nextRace} />
     </div>
   );
 }

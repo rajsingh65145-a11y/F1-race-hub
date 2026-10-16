@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import '../../styles/navbar.css'; 
 
 const navLinks = [
   { path: '/', label: 'Home' },
