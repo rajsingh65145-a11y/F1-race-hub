@@ -1,6 +1,12 @@
 // Sample data for learning: rounds 18-21 of the 2026 season
+export const season = {
+  year: 2026,
+  totalRounds: 24,
+};
+
+
 export const races = [
-  {
+    {
     round: 18,
     name: 'Singapore Grand Prix',
     country: 'Singapore',
@@ -10,6 +16,11 @@ export const races = [
     status: 'completed',
     qualifyingDate: '2026-10-10T12:00:00Z',
     raceDate: '2026-10-11T12:00:00Z',
+    results: [
+      { position: 1, driverId: 'norris', time: '1:38:47.912' },
+      { position: 2, driverId: 'russell', time: '+3.482s' },
+      { position: 3, driverId: 'verstappen', time: '+9.116s' },
+    ],
   },
   {
     round: 19,

@@ -1,0 +1,286 @@
+/* ===== Shared card ===== */
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.card-eyebrow {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  margin-top: var(--space-sm);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.card-muted {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.card-note {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* ===== Driver avatar ===== */
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2a2a33, #1b1b24);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.avatar-md {
+  width: 44px;
+  height: 44px;
+  font-size: 0.9rem;
+}
+
+.avatar-lg {
+  width: 72px;
+  height: 72px;
+  border-color: var(--color-accent);
+  font-size: 1.4rem;
+}
+
+/* ===== Stat card ===== */
+.stat-card {
+  padding: var(--space-md) 20px;
+}
+
+.stat-label {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  margin: var(--space-sm) 0 4px;
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-detail {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.progress {
+  height: 6px;
+  margin-top: var(--space-md);
+  overflow: hidden;
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+}
+
+/* ===== Championship leader card ===== */
+.leader-number {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: 9rem;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(225, 6, 0, 0.35);
+  pointer-events: none;
+  user-select: none;
+}
+
+.leader-content {
+  position: relative;
+  z-index: 1;
+}
+
+.leader-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+}
+
+.leader-points {
+  font-family: var(--font-mono);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.leader-points span {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.leader-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.leader-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.leader-stats strong {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+}
+
+.leader-stats span {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chaser-list {
+  list-style: none;
+}
+
+.chaser-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+}
+
+.chaser-position {
+  width: 32px;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.chaser-name {
+  flex: 1;
+}
+
+.chaser-points {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+/* ===== Next race card ===== */
+.session-list {
+  margin-top: var(--space-md);
+  list-style: none;
+}
+
+.session-list li {
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.session-name {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.session-time {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+/* ===== Latest result card ===== */
+.podium-list {
+  margin-top: var(--space-md);
+  list-style: none;
+}
+
+.podium-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.podium-position {
+  width: 32px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+.podium-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.podium-info span {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.podium-time {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-md);
+  }
+
+  .stat-card {
+    padding: 12px 14px;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+  }
+
+  .leader-number {
+    font-size: 6rem;
+  }
+
+  .leader-points {
+    font-size: 3rem;
+  }
+}
