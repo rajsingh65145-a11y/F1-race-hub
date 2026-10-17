@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import DriverAvatar from '../../Components/DriverAvatar/DriverAvatar';
-import StatCard from '../../components/StatCard/StatCard';
+import StatCard from '../../Components/StatCard/StatCard';
 import { drivers, standings } from '../../data/drivers';
 import '../../styles/profile.css';
 import '../../styles/cards.css';
