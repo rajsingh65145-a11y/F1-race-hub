@@ -1,0 +1,117 @@
+.profile-page {
+  padding: var(--space-lg) 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: var(--color-accent);
+}
+
+/* ===== Profile hero ===== */
+.profile-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 48px var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(225, 6, 0, 0.22), transparent 55%),
+    linear-gradient(135deg, #1b1b24 0%, var(--color-bg) 75%);
+}
+
+.profile-number {
+  position: absolute;
+  right: 24px;
+  bottom: -30px;
+  font-family: var(--font-mono);
+  font-size: 16rem;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+.profile-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.profile-last-name {
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* ===== Stats ===== */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+/* ===== Teammate ===== */
+.profile-section {
+  margin-top: var(--space-lg);
+}
+
+.section-title {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card.teammate-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: 420px;
+  padding: var(--space-md);
+}
+
+.teammate-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.teammate-info span {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.teammate-arrow {
+  color: var(--color-accent);
+  font-size: 1.4rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .profile-hero {
+    padding: 32px var(--space-md);
+  }
+
+  .profile-number {
+    right: 8px;
+    font-size: 9rem;
+  }
+}
