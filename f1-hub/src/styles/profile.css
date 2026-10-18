@@ -72,13 +72,7 @@
   margin-top: var(--space-lg);
 }
 
-.section-title {
-  margin-bottom: var(--space-md);
-  color: var(--color-text-muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
+
 
 .card.teammate-card {
   display: flex;
@@ -114,4 +108,78 @@
     right: 8px;
     font-size: 9rem;
   }
+}
+/* ===== Shared by driver and team pages ===== */
+.profile-kicker {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+.inline-link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.inline-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* ===== Team page ===== */
+.team-drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.split-bar {
+  display: flex;
+  height: 14px;
+  overflow: hidden;
+  background-color: var(--color-border);
+  border-radius: 7px;
+}
+
+.split-segment-0 {
+  background-color: var(--color-accent);
+}
+
+.split-segment-1 {
+  background-color: rgba(225, 6, 0, 0.4);
+}
+
+.split-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+  list-style: none;
+}
+
+.split-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.split-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.split-dot-0 {
+  background-color: var(--color-accent);
+}
+
+.split-dot-1 {
+  background-color: rgba(225, 6, 0, 0.4);
+}
+
+.split-points {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
 }

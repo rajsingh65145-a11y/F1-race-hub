@@ -67,7 +67,7 @@ export const drivers = [
   },
   {
     id: 'hulkenberg', name: 'Nico Hülkenberg', number: 27, nationality: 'German', flag: 'DE',
-    team: 'Audi', points: 28, wins: 0, podiums: 0, poles: 0, bestFinish: 7,
+    team: 'Audi', points: 29, wins: 0, podiums: 0, poles: 0, bestFinish: 7,
   },
   {
     id: 'bortoleto', name: 'Gabriel Bortoleto', number: 5, nationality: 'Brazilian', flag: 'BR',

@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import DriverAvatar from '../../Components/DriverAvatar/DriverAvatar';
 import StatCard from '../../Components/StatCard/StatCard';
 import { drivers, standings } from '../../data/drivers';
+import { teams } from '../../data/teams';
 import '../../styles/profile.css';
 import '../../styles/cards.css';
 
@@ -29,6 +30,7 @@ function DriverProfile() {
   const teammate = drivers.find(
     (d) => d.team === driver.team && d.id !== driver.id
   );
+  const team = teams.find((t) => t.name === driver.team);
 
   const stats = [
     {
@@ -64,8 +66,15 @@ function DriverProfile() {
           <p className="driver-first-name">{firstName}</p>
           <h1 className="profile-last-name">{lastName}</h1>
           <p className="card-muted">
-            {driver.team} · {driver.nationality} ({driver.flag})
-          </p>
+  {team ? (
+    <Link to={`/teams/${team.id}`} className="inline-link">
+      {driver.team}
+    </Link>
+  ) : (
+    driver.team
+  )}{' '}
+  · {driver.nationality} ({driver.flag})
+</p>
         </div>
       </section>
 

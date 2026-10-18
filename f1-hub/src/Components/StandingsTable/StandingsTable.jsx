@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import DriverAvatar from '../DriverAvatar/DriverAvatar';
+import '../../styles/tables.css';
 
 function StandingsTable({ drivers, standings }) {
   const maxPoints = standings[0].points;

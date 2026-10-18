@@ -44,3 +44,33 @@ a {
   margin: 0 auto;
   padding: 0 var(--space-lg);
 }
+
+/* ===== Page header (shared by all pages) ===== */
+.page-header {
+  margin-bottom: var(--space-lg);
+}
+
+.page-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+}
+
+.empty-message {
+  padding: 64px 0;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.section-title {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

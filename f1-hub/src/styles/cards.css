@@ -358,3 +358,77 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+/* ===== Team card ===== */
+.team-card {
+  display: block;
+  padding: 24px 20px;
+}
+
+.team-code {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  user-select: none;
+}
+
+.team-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.team-name {
+  margin-top: var(--space-md);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.team-points {
+  margin: var(--space-md) 0;
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.team-points span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.team-drivers {
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.team-drivers li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.team-drivers li:last-child {
+  border-bottom: none;
+}
+
+.team-driver-name {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.team-driver-points {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}

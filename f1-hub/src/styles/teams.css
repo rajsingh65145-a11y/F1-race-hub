@@ -1,0 +1,13 @@
+.teams-page {
+  padding: var(--space-lg) 0;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.teams-section {
+  margin-top: var(--space-lg);
+}
