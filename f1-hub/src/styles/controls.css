@@ -1,0 +1,43 @@
+/* ===== Filter chips ===== */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.chip {
+  padding: 8px 16px;
+  color: var(--color-text-muted);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.chip:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.chip.chip-active {
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .filter-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+  }
+
+  .chip {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}

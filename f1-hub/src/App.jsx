@@ -7,6 +7,7 @@ import DriverProfile from './Pages/DriverProfile/DriverProfile';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Teams from './Pages/Teams/Teams';
 import TeamDetail from './Pages/TeamDetail/TeamDetail';
+import Calendar from './Pages/Calendar/Calendar';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/drivers" element={<Drivers />} />
