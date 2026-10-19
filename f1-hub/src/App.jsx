@@ -8,6 +8,7 @@ import ComingSoon from './pages/ComingSoon/ComingSoon';
 import Teams from './Pages/Teams/Teams';
 import TeamDetail from './Pages/TeamDetail/TeamDetail';
 import Calendar from './Pages/Calendar/Calendar';
+import RaceWeekend from './Pages/RaceWeekend/RaceWeekend';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/calendar/:raceId" element={<RaceWeekend />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
           <Route path="/teams" element={<Teams />} />

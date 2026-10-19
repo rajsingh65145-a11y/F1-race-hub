@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import '../../styles/dashboard.css';
 function getTimeLeft(targetDate) {
   const difference = new Date(targetDate) - new Date();
 

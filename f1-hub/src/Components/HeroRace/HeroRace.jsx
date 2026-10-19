@@ -22,9 +22,10 @@ function HeroRace({ race }) {
         <Countdown targetDate={race.raceDate} />
 
         <div className="hero-actions">
-          <Link to="/calendar" className="btn btn-primary">
-            Race Calendar
-          </Link>
+          <Link to={`/calendar/${race.id}`} className="btn btn-primary">
+  Race Weekend
+</Link>
+
         </div>
       </div>
     </section>

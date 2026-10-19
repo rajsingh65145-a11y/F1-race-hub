@@ -1,13 +1,5 @@
-function formatSession(isoString) {
-  return new Date(isoString).toLocaleString(undefined, {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZoneName: 'short',
-  });
-}
+import { formatSession } from '../../utils/dates';
+
 
 function NextRaceCard({ race }) {
   const sessions = [

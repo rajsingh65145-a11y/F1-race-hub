@@ -1,11 +1,13 @@
 import DriverAvatar from '../DriverAvatar/DriverAvatar';
 
-function RecentResult({ race, drivers }) {
+function RecentResult({ race, drivers, eyebrow = 'Latest Result' }) {
   const podium = race.results.slice(0, 3);
 
   return (
     <div className="card result-card">
-      <p className="card-eyebrow">Latest Result · Round {race.round}</p>
+      <p className="card-eyebrow">
+  {eyebrow} · Round {race.round}
+</p>
       <h3 className="card-title">{race.name}</h3>
 
       <ul className="podium-list">

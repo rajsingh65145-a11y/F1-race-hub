@@ -435,6 +435,7 @@
 
 /* ===== Race card ===== */
 .race-card {
+  display: block;
   padding: 24px 20px;
 }
 

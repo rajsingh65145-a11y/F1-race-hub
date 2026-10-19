@@ -1,4 +1,5 @@
 import DriverAvatar from '../DriverAvatar/DriverAvatar';
+import { Link } from 'react-router-dom';
 
 function getDaysUntil(isoString) {
   const msPerDay = 1000 * 60 * 60 * 24;
@@ -23,9 +24,11 @@ function RaceCard({ race, winner, isNext }) {
   const isUpcoming = race.status === 'upcoming';
 
   return (
-    <article
-      className={`card race-card race-card-${race.status} ${isNext ? 'race-card-next' : ''}`}
-    >
+    <Link
+  to={`/calendar/${race.id}`}
+  className={`card race-card race-card-${race.status} ${isNext ? 'race-card-next' : ''}`}
+>
+    
       <div className="race-card-top">
         <span className="race-round">{race.round ? `R${race.round}` : '—'}</span>
 
@@ -62,7 +65,7 @@ function RaceCard({ race, winner, isNext }) {
           </div>
         </div>
       )}
-    </article>
+    </Link>
   );
 }
 
