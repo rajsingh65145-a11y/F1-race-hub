@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import Countdown from '../../Components/Countdown/Countdown';
 import RecentResult from '../../Components/RecentResult/RecentResult';
+import QualifyingResults from '../../Components/QualifyingResults/QualifyingResults';
 import { races } from '../../data/races';
 import { drivers } from '../../data/drivers';
 import { formatSession } from '../../utils/dates';
@@ -113,6 +114,20 @@ function RaceWeekend() {
           </div>
         </section>
       )}
+            {race.status === 'completed' && (
+        <section className="profile-section">
+          <h2 className="section-title">Qualifying</h2>
+
+          {race.qualifying ? (
+            <QualifyingResults qualifying={race.qualifying} drivers={drivers} />
+          ) : (
+            <p className="card-note">
+              Detailed qualifying data is not available for this race in the demo.
+            </p>
+          )}
+        </section>
+      )}
+    
 
       <section className="profile-section">
         <h2 className="section-title">Weekend timeline</h2>

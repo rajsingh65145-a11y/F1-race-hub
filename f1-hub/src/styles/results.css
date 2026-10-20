@@ -1,0 +1,39 @@
+.results-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  max-width: 520px;
+  margin-bottom: var(--space-md);
+}
+
+.qualifying-table {
+  min-width: 700px;
+}
+
+.time-fastest {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.stages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stage {
+  width: 18px;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+.stage-reached {
+  background-color: var(--color-accent);
+}
+
+.stage-label {
+  margin-left: 6px;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
