@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Countdown from '../../Components/Countdown/Countdown';
+import FilterChips from '../../Components/FilterChips/FilterChips';
+import QualifyingResults from '../../components/QualifyingResults/QualifyingResults';
+import RaceResults from '../../Components/RaceResults/RaceResults';
 import RecentResult from '../../Components/RecentResult/RecentResult';
-import QualifyingResults from '../../Components/QualifyingResults/QualifyingResults';
 import { races } from '../../data/races';
 import { drivers } from '../../data/drivers';
 import { formatSession } from '../../utils/dates';
@@ -32,6 +35,11 @@ const statusLabels = {
   upcoming: 'Upcoming',
 };
 
+const tabOptions = [
+  { id: 'race', label: 'Race' },
+  { id: 'qualifying', label: 'Qualifying' },
+];
+
 function getWeekendSessions(race) {
   const template = race.sprint ? sprintSessions : standardSessions;
   const qualiTime = new Date(race.qualifyingDate).getTime();
@@ -58,6 +66,7 @@ function getSessionStatus(index, nextIndex) {
 
 function RaceWeekend() {
   const { raceId } = useParams();
+  const [activeTab, setActiveTab] = useState('race');
   const race = races.find((r) => r.id === raceId);
 
   if (!race) {
@@ -75,6 +84,34 @@ function RaceWeekend() {
   const sessions = isCancelled ? [] : getWeekendSessions(race);
   const now = new Date();
   const nextIndex = sessions.findIndex((session) => session.time > now);
+
+  // What to show inside the "Results" section (completed races only)
+  let resultsContent = null;
+
+  if (race.status === 'completed' && race.results) {
+    if (activeTab === 'qualifying') {
+      resultsContent = race.qualifying ? (
+        <QualifyingResults qualifying={race.qualifying} drivers={drivers} />
+      ) : (
+        <p className="card-note">
+          Detailed qualifying data is not available for this race in the demo.
+        </p>
+      );
+    } else if (race.results.length > 3) {
+      resultsContent = <RaceResults race={race} drivers={drivers} />;
+    } else {
+      resultsContent = (
+        <>
+          <div className="weekend-result">
+            <RecentResult race={race} drivers={drivers} eyebrow="Race Result" />
+          </div>
+          <p className="card-note">
+            Only the podium is available for this race in the demo.
+          </p>
+        </>
+      );
+    }
+  }
 
   return (
     <div className="profile-page">
@@ -106,28 +143,19 @@ function RaceWeekend() {
         </div>
       </section>
 
-      {race.status === 'completed' && race.results && (
+      {resultsContent && (
         <section className="profile-section">
-          <h2 className="section-title">Result</h2>
-          <div className="weekend-result">
-            <RecentResult race={race} drivers={drivers} eyebrow="Race Result" />
-          </div>
-        </section>
-      )}
-            {race.status === 'completed' && (
-        <section className="profile-section">
-          <h2 className="section-title">Qualifying</h2>
+          <h2 className="section-title">Results</h2>
 
-          {race.qualifying ? (
-            <QualifyingResults qualifying={race.qualifying} drivers={drivers} />
-          ) : (
-            <p className="card-note">
-              Detailed qualifying data is not available for this race in the demo.
-            </p>
-          )}
+          <FilterChips
+            options={tabOptions}
+            selected={activeTab}
+            onSelect={setActiveTab}
+          />
+
+          {resultsContent}
         </section>
       )}
-    
 
       <section className="profile-section">
         <h2 className="section-title">Weekend timeline</h2>
