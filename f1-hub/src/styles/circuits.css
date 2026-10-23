@@ -1,0 +1,171 @@
+.circuits-page {
+  padding: var(--space-lg) 0;
+}
+
+.sort-label {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.circuits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ===== Circuit card ===== */
+.circuit-card {
+  display: block;
+  padding: 20px;
+}
+
+.circuit-card-layout {
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(225, 6, 0, 0.12), transparent 70%),
+    rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.circuit-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.circuit-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.circuit-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.circuit-stats strong {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+}
+
+.circuit-stats span {
+  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===== Track layout (SVG) ===== */
+.track-layout {
+  display: block;
+  width: 100%;
+  height: 170px;
+}
+
+.track-path {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.track-start {
+  fill: var(--color-accent);
+}
+
+/* ===== Circuit detail page ===== */
+.circuit-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(225, 6, 0, 0.22), transparent 55%),
+    linear-gradient(135deg, #1b1b24 0%, var(--color-bg) 75%);
+}
+
+.circuit-hero .track-layout {
+  height: 340px;
+}
+
+.circuit-title {
+  margin: var(--space-md) 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.circuit-races {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+  max-width: 700px;
+}
+
+/* ===== Track animation ===== */
+.track-path-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-track 2.5s ease forwards;
+}
+
+@keyframes draw-track {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.track-car {
+  fill: var(--color-accent);
+  stroke: #fff;
+  stroke-width: 0.8;
+  opacity: 0;
+  animation: show-car 0.3s ease 2.5s forwards;
+}
+
+@keyframes show-car {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-path-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .track-car {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .circuit-hero {
+    grid-template-columns: 1fr;
+    padding: var(--space-md);
+  }
+
+  .circuit-hero .track-layout {
+    height: 260px;
+  }
+
+  .circuit-stats-grid .stat-value {
+    font-size: 1.5rem;
+  }
+}

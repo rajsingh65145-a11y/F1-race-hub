@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { circuits } from '../../data/circuits';
 import { Link, useParams } from 'react-router-dom';
 import Countdown from '../../Components/Countdown/Countdown';
 import FilterChips from '../../Components/FilterChips/FilterChips';
-import QualifyingResults from '../../components/QualifyingResults/QualifyingResults';
+import QualifyingResults from '../../Components/QualifyingResults/QualifyingResults';
 import RaceResults from '../../Components/RaceResults/RaceResults';
 import RecentResult from '../../Components/RecentResult/RecentResult';
 import { races } from '../../data/races';
@@ -81,6 +82,7 @@ function RaceWeekend() {
   }
 
   const isCancelled = race.status === 'cancelled';
+  const circuit = circuits.find((c) => c.name === race.circuit);
   const sessions = isCancelled ? [] : getWeekendSessions(race);
   const now = new Date();
   const nextIndex = sessions.findIndex((session) => session.time > now);
@@ -136,9 +138,15 @@ function RaceWeekend() {
           </p>
           <h1 className="weekend-title">{race.name}</h1>
           <p className="card-muted">
-            {race.circuit} · {race.city}, {race.country}
-          </p>
-
+  {circuit ? (
+    <Link to={`/circuits/${circuit.id}`} className="inline-link">
+      {race.circuit}
+    </Link>
+  ) : (
+    race.circuit
+  )}{' '}
+  · {race.city}, {race.country}
+</p>
           {race.status === 'upcoming' && <Countdown targetDate={race.raceDate} />}
         </div>
       </section>

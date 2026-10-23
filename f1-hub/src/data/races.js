@@ -3,7 +3,7 @@
 // Podiums, race times and qualifying times are made-up demo values.
 export const season = {
   year: 2026,
-  totalRounds: 22,
+  totalRounds: 23,
 };
 
 export const races = [
@@ -37,11 +37,7 @@ export const races = [
       { position: 3, driverId: 'piastri', time: '+9.077s' },
     ],
   },
-  {
-    id: 'bahrain', round: null, name: 'Bahrain Grand Prix', country: 'Bahrain', city: 'Sakhir',
-    circuit: 'Bahrain International Circuit', date: '10–12 Apr 2026', status: 'cancelled',
-    raceDate: '2026-04-12T15:00:00Z',
-  },
+  
   {
     id: 'saudi-arabia', round: null, name: 'Saudi Arabian Grand Prix', country: 'Saudi Arabia', city: 'Jeddah',
     circuit: 'Jeddah Corniche Circuit', date: '17–19 Apr 2026', status: 'cancelled',
@@ -165,6 +161,16 @@ export const races = [
       { position: 1, driverId: 'norris', time: '1:34:20.186' },
       { position: 2, driverId: 'verstappen', time: '+6.667s' },
       { position: 3, driverId: 'russell', time: '+11.452s' },
+    ],
+  },
+    {
+    id: 'bahrain', round: 16, name: 'Bahrain Grand Prix', country: 'Malaysia', city: 'Sepang',
+    circuit: 'Sepang International Circuit', date: '2–4 Oct 2026', status: 'completed',
+    qualifyingDate: '2026-10-03T08:00:00Z', raceDate: '2026-10-04T07:00:00Z',
+    results: [
+      { position: 1, driverId: 'russell', time: '1:33:21.704' },
+      { position: 2, driverId: 'antonelli', time: '+4.118s' },
+      { position: 3, driverId: 'hamilton', time: '+11.760s' },
     ],
   },
   {

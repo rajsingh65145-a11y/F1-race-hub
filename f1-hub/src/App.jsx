@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import CircuitDetail from './pages/CircuitDetail/CircuitDetail';
 import Navbar from './Components/Navbar/Navbar';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Home from './pages/Home/Home';
+import Circuits from './Pages/Circuits/Circuits';
 import Drivers from './Pages/Drivers/Drivers';
 import DriverProfile from './Pages/DriverProfile/DriverProfile';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
@@ -18,6 +20,8 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/circuits" element={<Circuits />} />
+          <Route path="/circuits/:circuitId" element={<CircuitDetail />} />
           <Route path="/calendar/:raceId" element={<RaceWeekend />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
