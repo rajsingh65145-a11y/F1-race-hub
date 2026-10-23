@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CircuitCard from '../../Components/CircuitCard/CircuitCard';
-import FilterChips from '../../components/FilterChips/FilterChips';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import FilterChips from '../../Components/FilterChips/FilterChips';
+import SearchBar from '../../Components/SearchBar/SearchBar';
 import { circuits } from '../../data/circuits';
 import '../../styles/circuits.css';
 import '../../styles/cards.css';
