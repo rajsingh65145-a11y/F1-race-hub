@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import TyreGuide from '../../Components/TyreGuide/TyreGuide';
+import TyreStrategy from '../../Components/TyreStrategy/TyreStrategy';
 import { circuits } from '../../data/circuits';
 import { Link, useParams } from 'react-router-dom';
 import Countdown from '../../Components/Countdown/Countdown';
@@ -39,6 +41,7 @@ const statusLabels = {
 const tabOptions = [
   { id: 'race', label: 'Race' },
   { id: 'qualifying', label: 'Qualifying' },
+  { id: 'tyres', label: 'Tyres' },
 ];
 
 function getWeekendSessions(race) {
@@ -88,10 +91,23 @@ function RaceWeekend() {
   const nextIndex = sessions.findIndex((session) => session.time > now);
 
   // What to show inside the "Results" section (completed races only)
-  let resultsContent = null;
+   let resultsContent = null;
 
   if (race.status === 'completed' && race.results) {
-    if (activeTab === 'qualifying') {
+    if (activeTab === 'tyres') {
+      resultsContent = (
+        <>
+          <TyreGuide />
+          {race.strategies ? (
+            <TyreStrategy race={race} drivers={drivers} />
+          ) : (
+            <p className="card-note">
+              Tyre strategy data is not available for this race in the demo.
+            </p>
+          )}
+        </>
+      );
+    } else if (activeTab === 'qualifying') {
       resultsContent = race.qualifying ? (
         <QualifyingResults qualifying={race.qualifying} drivers={drivers} />
       ) : (

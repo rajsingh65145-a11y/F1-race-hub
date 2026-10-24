@@ -1,0 +1,201 @@
+/* ===== Tyre badge ===== */
+.tyre-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-bg);
+  border: 3px solid;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ===== Tyre guide ===== */
+.tyre-guide {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.tyre-card {
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.tyre-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tyre-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tyre-type {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.tyre-description {
+  min-height: 4.5em;
+  margin: var(--space-md) 0 var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.meter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.meter-label {
+  width: 74px;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.meter-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.meter-dot {
+  width: 16px;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 3px;
+}
+
+/* ===== Strategy chart ===== */
+.strategy-summary {
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.strategy-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.legend-item .tyre-badge {
+  width: 26px;
+  height: 26px;
+  border-width: 2px;
+  font-size: 0.7rem;
+}
+
+.strategy-chart {
+  padding: var(--space-md);
+  overflow-x: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.strategy-inner {
+  min-width: 680px;
+}
+
+.strategy-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 5px 0;
+}
+
+.strategy-driver {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.strategy-position {
+  width: 22px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-align: right;
+}
+
+.strategy-stops {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.strategy-lane {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 28px;
+}
+
+.stint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  height: 100%;
+  padding: 0 8px;
+  overflow: hidden;
+  color: #0a0a0d;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.stint-laps {
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.strategy-dnf {
+  margin-left: 8px;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.strategy-axis {
+  position: relative;
+  height: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.axis-tick {
+  position: absolute;
+  top: 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  transform: translateX(-50%);
+}
