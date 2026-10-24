@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Compare from './Pages/Compare/Compare';
 import CircuitDetail from './pages/CircuitDetail/CircuitDetail';
 import Navbar from './Components/Navbar/Navbar';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/circuits" element={<Circuits />} />
+          <Route path="/compare" element={<Compare />} />
           <Route path="/circuits/:circuitId" element={<CircuitDetail />} />
           <Route path="/calendar/:raceId" element={<RaceWeekend />} />
           <Route path="/calendar" element={<Calendar />} />
