@@ -8,6 +8,7 @@ import Circuits from './Pages/Circuits/Circuits';
 import Drivers from './Pages/Drivers/Drivers';
 import DriverProfile from './Pages/DriverProfile/DriverProfile';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
+import LiveRace from './Pages/LiveRace/LiveRace';
 import Teams from './Pages/Teams/Teams';
 import TeamDetail from './Pages/TeamDetail/TeamDetail';
 import Calendar from './Pages/Calendar/Calendar';
@@ -21,6 +22,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/live" element={<LiveRace />} />
           <Route path="/circuits" element={<Circuits />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/circuits/:circuitId" element={<CircuitDetail />} />

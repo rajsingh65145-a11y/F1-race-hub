@@ -10,6 +10,7 @@ const navLinks = [
   { path: '/standings', label: 'Standings' },
   { path: '/circuits', label: 'Circuits' },
   { path: '/compare', label: 'Compare' },
+  { path: '/live', label: 'Live' },
 ];
 
 function Navbar() {
