@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Standings from './Pages/Standings/Standings';
 import Compare from './Pages/Compare/Compare';
 import CircuitDetail from './pages/CircuitDetail/CircuitDetail';
 import Navbar from './Components/Navbar/Navbar';
@@ -22,6 +23,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/standings" element={<Standings />} />
           <Route path="/live" element={<LiveRace />} />
           <Route path="/circuits" element={<Circuits />} />
           <Route path="/compare" element={<Compare />} />

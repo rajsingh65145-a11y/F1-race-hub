@@ -1,0 +1,208 @@
+.standings-page {
+  padding: var(--space-lg) 0;
+}
+
+/* ===== Title battle ===== */
+.battle-selects {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.battle-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.battle-panel {
+  margin-bottom: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.battle-panel-title {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.battle-panel-note {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.legend-swatch {
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.legend-swatch-a {
+  background-color: var(--color-accent);
+}
+
+.legend-swatch-b {
+  background-color: var(--color-text);
+}
+
+.legend-swatch-dim {
+  background-color: #3a3a46;
+}
+
+/* ===== SVG line chart ===== */
+.chart-scroll {
+  overflow-x: auto;
+}
+
+.chart-svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+}
+
+.chart-grid {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.chart-axis-text {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.chart-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-line-dim {
+  stroke: #3a3a46;
+  stroke-width: 1.5;
+}
+
+.chart-line-a {
+  stroke: var(--color-accent);
+  stroke-width: 3;
+}
+
+.chart-line-b {
+  stroke: var(--color-text);
+  stroke-width: 3;
+}
+
+.chart-dot {
+  stroke: var(--color-surface);
+  stroke-width: 2;
+}
+
+.chart-dot-a {
+  fill: var(--color-accent);
+}
+
+.chart-dot-b {
+  fill: var(--color-text);
+}
+
+.chart-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.chart-label-a {
+  fill: var(--color-accent);
+}
+
+.chart-label-b {
+  fill: var(--color-text);
+}
+
+/* ===== Gap bars ===== */
+.gap-chart {
+  display: flex;
+  gap: 4px;
+  min-width: 520px;
+  margin-top: var(--space-md);
+}
+
+.gap-col {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.gap-bar-area {
+  position: relative;
+  height: 160px;
+}
+
+.gap-bar-area::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.gap-bar {
+  position: absolute;
+  right: 15%;
+  left: 15%;
+  border-radius: 3px;
+  transition: height 0.4s ease;
+}
+
+.gap-bar-up {
+  bottom: 50%;
+  background-color: var(--color-accent);
+}
+
+.gap-bar-down {
+  top: 50%;
+  background-color: var(--color-text);
+}
+
+.gap-round {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .battle-selects {
+    flex-direction: column;
+  }
+
+  .battle-panel {
+    padding: var(--space-md);
+  }
+}
