@@ -1,18 +1,68 @@
 import { useState } from 'react';
+import BattleCard from '../BattleCard/BattleCard';
 import DriverSelect from '../DriverSelect/DriverSelect';
 import GapBars from '../GapBars/GapBars';
+import PositionStrip from '../PositionStrip/PositionStrip';
 import ProgressionChart from '../ProgressionChart/ProgressionChart';
 import StatCard from '../StatCard/StatCard';
+import TitleChances from '../TitleChances/TitleChances';
 import { standings } from '../../data/drivers';
 import { progression } from '../../data/progression';
 import { races } from '../../data/races';
 import { getLastName } from '../../utils/names';
+import { getPositionsByRound } from '../../utils/progression';
 import '../../styles/battle.css';
+import '../../styles/cards.css';
 
 // Only drivers that have progression data can be picked, in championship order
 const contenders = standings.filter((driver) =>
   progression.some((row) => row.driverId === driver.id)
 );
+
+// ----- Everything below does not depend on the two selected drivers,
+// ----- so it is calculated once, outside the component
+const titleLeader = contenders[0];
+
+const positionsByRound = getPositionsByRound(progression);
+
+const stripRows = contenders.map((driver) => ({
+  driverId: driver.id,
+  name: getLastName(driver.name),
+  positions: positionsByRound[driver.id],
+}));
+
+// Points still up for grabs: 25 for every race left, +8 for every sprint left
+const upcomingRaces = races.filter((race) => race.status === 'upcoming');
+const maxAvailable = upcomingRaces.reduce(
+  (total, race) => total + 25 + (race.sprint ? 8 : 0),
+  0
+);
+
+// Biggest single-weekend score of anyone: one common scale for the form bars
+const maxWeekend = Math.max(
+  ...progression.map((row) => Math.max(...row.points))
+);
+
+const chanceRows = contenders.map((driver) => {
+  const gap = titleLeader.points - driver.points;
+  const maxPossible = driver.points + maxAvailable;
+
+  // How much of the remaining points the driver must win back (100% = out of reach)
+  let difficulty = 0;
+  if (maxAvailable > 0) {
+    difficulty = Math.min(gap / maxAvailable, 1) * 100;
+  } else if (gap > 0) {
+    difficulty = 100;
+  }
+
+  return {
+    driver,
+    gap,
+    maxPossible,
+    canWin: maxPossible > titleLeader.points,
+    difficulty,
+  };
+});
 
 function TitleBattle() {
   const [idA, setIdA] = useState(contenders[0].id);
@@ -142,6 +192,42 @@ function TitleBattle() {
           nameB={nameB}
           roundLabels={roundLabels}
         />
+      </section>
+
+      <h2 className="section-title battle-heading">Position after each round</h2>
+      <section className="battle-panel">
+        <p className="battle-panel-note">
+          Among the top {contenders.length} drivers · P1, P2 and P3 are highlighted
+        </p>
+        <PositionStrip rows={stripRows} roundLabels={roundLabels} />
+      </section>
+
+      <h2 className="section-title battle-heading">Battle cards</h2>
+      <div className="battle-cards">
+        {contenders.slice(0, 3).map((driver, index) => {
+          const row = progression.find((r) => r.driverId === driver.id);
+
+          return (
+            <BattleCard
+              key={driver.id}
+              driver={driver}
+              row={row}
+              position={index + 1}
+              leaderPoints={titleLeader.points}
+              maxWeekend={maxWeekend}
+            />
+          );
+        })}
+      </div>
+
+      <h2 className="section-title battle-heading">
+        Who can still win the title?
+      </h2>
+      <section className="battle-panel">
+        <p className="battle-panel-note">
+          {upcomingRaces.length} races left · {maxAvailable} points still available
+        </p>
+        <TitleChances rows={chanceRows} />
       </section>
 
       <p className="card-note">

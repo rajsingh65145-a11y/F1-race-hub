@@ -206,3 +206,225 @@
     padding: var(--space-md);
   }
 }
+
+/* ===== Section headings ===== */
+.battle-heading {
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+/* ===== Position strip ===== */
+.strip-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+
+.strip-table th {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.strip-table th.strip-name {
+  padding-right: 12px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.strip-cell {
+  position: relative;
+  height: 34px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.strip-cell-1 {
+  color: #fff;
+  background-color: var(--color-accent);
+}
+
+.strip-cell-2 {
+  background-color: rgba(225, 6, 0, 0.35);
+}
+
+.strip-cell-3 {
+  background-color: rgba(225, 6, 0, 0.18);
+}
+
+.strip-change {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 0.5rem;
+}
+
+.strip-change-down {
+  opacity: 0.6;
+}
+
+/* ===== Battle cards ===== */
+.battle-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.battle-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.battle-card-name {
+  margin-top: var(--space-md);
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.battle-card-points {
+  margin-top: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.battle-card-points span {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.battle-card-gap {
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.form-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.form-title strong {
+  color: var(--color-text);
+}
+
+.form-bars {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-sm);
+}
+
+.form-col {
+  flex: 1;
+  text-align: center;
+}
+
+.form-bar-area {
+  display: flex;
+  align-items: flex-end;
+  height: 70px;
+}
+
+.form-bar {
+  width: 100%;
+  min-height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 3px 3px 0 0;
+  transition: height 0.4s ease;
+}
+
+.form-points {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.battle-card-note {
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* ===== Title chances ===== */
+.difficulty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.difficulty-track {
+  flex: 1;
+  height: 8px;
+  overflow: hidden;
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+.difficulty-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  border-radius: 4px;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-leader {
+  color: #fff;
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.status-alive {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.status-out {
+  color: var(--color-text-muted);
+}
+
+.row-eliminated {
+  opacity: 0.5;
+}
+
+.row-eliminated .difficulty-fill {
+  background-color: #5a5a66;
+}
+
+.chances-name {
+  font-family: var(--font-body);
+}
