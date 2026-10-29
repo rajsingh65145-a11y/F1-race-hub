@@ -1,60 +1,91 @@
+import TyreBadge from '../TyreBadge/TyreBadge';
+import { tyreCompounds } from '../../data/tyres';
+import { formatGap, formatLapTime } from '../../utils/lapTimes';
+import { getLastName } from '../../utils/names';
+import '../../styles/tables.css';
 import '../../styles/live.css';
 
-function RaceControls({ lap, totalLaps, isRunning, onToggle, onReset }) {
-  const isFinished = lap >= totalLaps;
-  const hasStarted = lap > 0;
-  const progress = (lap / totalLaps) * 100;
-
-  let statusLabel = 'Ready on the grid';
-  if (isFinished) {
-    statusLabel = 'Chequered flag';
-  } else if (isRunning) {
-    statusLabel = lap === totalLaps - 1 ? 'Final lap' : 'Green flag';
-  } else if (hasStarted) {
-    statusLabel = 'Race paused';
+function getGapText(car) {
+  if (car.retired) {
+    return 'OUT';
   }
-
-  let toggleLabel = 'Start race';
-  if (isRunning) {
-    toggleLabel = 'Pause';
-  } else if (hasStarted) {
-    toggleLabel = 'Resume';
+  if (car.position === 1) {
+    return 'Leader';
   }
+  return formatGap(car.gapToLeader);
+}
 
-  const isLive = isRunning && !isFinished;
+function getIntervalText(car) {
+  if (car.retired || car.position === 1) {
+    return '—';
+  }
+  return formatGap(car.interval);
+}
 
-  return (
-    <section className="race-controls">
-      <div>
-        <div className="race-status">
-          <span className={`status-dot ${isLive ? 'status-dot-live' : ''}`}></span>
-          {statusLabel}
-        </div>
-        <p className="lap-counter">
-          {lap}
-          <span> / {totalLaps}</span>
-        </p>
-        <p className="lap-caption">Laps completed</p>
-      </div>
+function LiveLeaderboard({ rows, drivers, favouriteId }) {  return (
+    <div className="table-wrapper">
+      <table className="standings-table live-table">
+        <thead>
+          <tr>
+            <th>Pos</th>
+            <th>Driver</th>
+            <th>Gap</th>
+            <th className="hide-sm">Int</th>
+            <th>Tyre</th>
+            <th className="hide-sm">Pits</th>
+            <th className="hide-sm">Last lap</th>
+          </tr>
+        </thead>
 
-      <div className="race-progress">
-        <div className="race-progress-fill" style={{ width: `${progress}%` }}></div>
-      </div>
+        <tbody>
+          {rows.map((car) => {
+            const driver = drivers.find((d) => d.id === car.driverId);
+            const compound = tyreCompounds.find((t) => t.id === car.tyre);
 
-      <div className="control-buttons">
-        <button
-          className="control-btn control-btn-primary"
-          onClick={onToggle}
-          disabled={isFinished}
-        >
-          {toggleLabel}
-        </button>
-        <button className="control-btn" onClick={onReset} disabled={!hasStarted}>
-          Reset
-        </button>
-      </div>
-    </section>
+            if (!driver || !compound) {
+              return null;
+            }
+
+            return (
+<tr
+  key={car.driverId}
+  className={`${car.retired ? 'row-out' : ''} ${
+    car.driverId === favouriteId ? 'row-favourite' : ''
+  }`}
+>                <td className="standings-position">{car.position}</td>
+
+                <td>
+                  <div className="standings-driver-info">
+<strong>
+  {car.driverId === favouriteId && <span className="fav-mark">♥</span>}
+  {getLastName(driver.name)}
+</strong>                  
+  <span>{driver.team}</span>
+                  </div>
+                </td>
+
+                <td>{getGapText(car)}</td>
+                <td className="hide-sm">{getIntervalText(car)}</td>
+
+                <td>
+                  <div className="live-tyre">
+                    <TyreBadge compound={compound} />
+                    <span>{car.tyreAge}L</span>
+                    {car.justPitted && <span className="pit-tag">PIT</span>}
+                  </div>
+                </td>
+
+                <td className="hide-sm">{car.stops}</td>
+                <td className="hide-sm">
+                  {car.lastLap ? formatLapTime(car.lastLap) : '—'}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
-export default RaceControls;
+export default LiveLeaderboard;

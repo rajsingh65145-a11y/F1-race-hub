@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import FilterChips from '../../Components/FilterChips/FilterChips';
 import LiveLeaderboard from '../../Components/LiveLeaderboard/LiveLeaderboard';
 import RaceControls from '../../Components/RaceControls/RaceControls';
@@ -33,6 +34,7 @@ const simulationRace = races.find(
 function RaceSimulator({ raceData }) {
   const [race, setRace] = useState(() => createInitialRace(raceData));
   const [isRunning, setIsRunning] = useState(false);
+  const [favouriteId] = useLocalStorage('f1hub:favouriteDriver', null);
   const [speed, setSpeed] = useState(1);
 
   const isFinished = race.lap >= race.totalLaps;
@@ -119,8 +121,7 @@ function RaceSimulator({ raceData }) {
             </section>
           )}
 
-          <LiveLeaderboard rows={classification} drivers={drivers} />
-        </div>
+<LiveLeaderboard rows={classification} drivers={drivers} favouriteId={favouriteId} />        </div>
 
         <aside className="live-side">
           <StatCard

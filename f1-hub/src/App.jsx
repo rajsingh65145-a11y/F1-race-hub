@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Circuits from './Pages/Circuits/Circuits';
 import Drivers from './Pages/Drivers/Drivers';
 import DriverProfile from './Pages/DriverProfile/DriverProfile';
+import Garage from './pages/Garage/Garage';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import LiveRace from './Pages/LiveRace/LiveRace';
 import Teams from './Pages/Teams/Teams';
@@ -23,6 +24,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/garage" element={<Garage />} />
           <Route path="/standings" element={<Standings />} />
           <Route path="/live" element={<LiveRace />} />
           <Route path="/circuits" element={<Circuits />} />

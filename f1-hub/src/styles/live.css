@@ -267,3 +267,16 @@
     grid-template-columns: 1fr;
   }
 }
+/* ===== Favourite driver ===== */
+.row-favourite td {
+  background-color: rgba(225, 6, 0, 0.1);
+}
+
+.row-favourite td:first-child {
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+.fav-mark {
+  margin-right: 6px;
+  color: var(--color-accent);
+}

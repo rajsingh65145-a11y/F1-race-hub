@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import ComparisonBar from '../../Components/ComparisonBar/ComparisonBar';
 import DriverAvatar from '../../Components/DriverAvatar/DriverAvatar';
 import DriverSelect from '../../Components/DriverSelect/DriverSelect';
@@ -67,8 +68,16 @@ function MatchupSide({ driver, align }) {
 }
 
 function Compare() {
-  const [driverAId, setDriverAId] = useState(standings[0].id);
-  const [driverBId, setDriverBId] = useState(standings[1].id);
+  const [savedAId, setDriverAId] = useLocalStorage('f1hub:compareA', standings[0].id);
+const [savedBId, setDriverBId] = useLocalStorage('f1hub:compareB', standings[1].id);
+
+// If a saved id is not a real driver any more, fall back to the default
+const driverAId = standings.some((d) => d.id === savedAId)
+  ? savedAId
+  : standings[0].id;
+const driverBId = standings.some((d) => d.id === savedBId)
+  ? savedBId
+  : standings[1].id;
 
   const driverA = standings.find((d) => d.id === driverAId);
   const driverB = standings.find((d) => d.id === driverBId);
