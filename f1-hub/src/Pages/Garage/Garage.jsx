@@ -1,4 +1,4 @@
-import CircuitCard from '../../components/CircuitCard/CircuitCard';
+import CircuitCard from '../../Components/CircuitCard/CircuitCard';
 import DriverCard from '../../Components/DriverCard/DriverCard';
 import GarageSelect from '../../Components/GarageSelect/GarageSelect';
 import TeamCard from '../../components/TeamCard/TeamCard';
