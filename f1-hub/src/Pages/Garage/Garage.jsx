@@ -1,7 +1,7 @@
 import CircuitCard from '../../Components/CircuitCard/CircuitCard';
 import DriverCard from '../../Components/DriverCard/DriverCard';
 import GarageSelect from '../../Components/GarageSelect/GarageSelect';
-import TeamCard from '../../components/TeamCard/TeamCard';
+import TeamCard from '../../Components/TeamCard/TeamCard';
 import { circuits } from '../../data/circuits';
 import { standings } from '../../data/drivers';
 import { constructorStandings } from '../../data/teams';
