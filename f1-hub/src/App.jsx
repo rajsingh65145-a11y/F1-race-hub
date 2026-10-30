@@ -5,10 +5,12 @@ import CircuitDetail from './pages/CircuitDetail/CircuitDetail';
 import Navbar from './Components/Navbar/Navbar';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Home from './pages/Home/Home';
+import Search from './Pages/Search/Search';
+import SearchShortcut from './Components/SearchShortcut/SearchShortcut';
 import Circuits from './Pages/Circuits/Circuits';
 import Drivers from './Pages/Drivers/Drivers';
 import DriverProfile from './Pages/DriverProfile/DriverProfile';
-import Garage from './pages/Garage/Garage';
+import Garage from './Pages/Garage/Garage';
 import ComingSoon from './pages/ComingSoon/ComingSoon';
 import LiveRace from './Pages/LiveRace/LiveRace';
 import Teams from './Pages/Teams/Teams';
@@ -20,10 +22,12 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <SearchShortcut />
       <Navbar />
       <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/garage" element={<Garage />} />
           <Route path="/standings" element={<Standings />} />
           <Route path="/live" element={<LiveRace />} />

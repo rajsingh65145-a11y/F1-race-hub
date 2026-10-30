@@ -12,6 +12,7 @@ const navLinks = [
   { path: '/compare', label: 'Compare' },
   { path: '/live', label: 'Live' },
   { path: '/garage', label: 'Garage' },
+  { path: '/search', label: 'Search' },
 ];
 
 function Navbar() {
