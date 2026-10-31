@@ -1,4 +1,4 @@
-
+import '../../styles/controls.css';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import ComparisonBar from '../../Components/ComparisonBar/ComparisonBar';
 import DriverAvatar from '../../Components/DriverAvatar/DriverAvatar';

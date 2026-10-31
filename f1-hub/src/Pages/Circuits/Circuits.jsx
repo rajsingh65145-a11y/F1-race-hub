@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import EmptyState from '../../Components/EmptyState/EmptyState';
 import CircuitCard from '../../Components/CircuitCard/CircuitCard';
 import FilterChips from '../../Components/FilterChips/FilterChips';
 import SearchBar from '../../Components/SearchBar/SearchBar';
@@ -55,8 +56,13 @@ function Circuits() {
       />
 
       {sortedCircuits.length === 0 ? (
-        <p className="empty-message">No circuits match your search.</p>
-      ) : (
+  <EmptyState
+    title="No circuits found"
+    message="Try another circuit, city or country."
+    actionLabel="Clear search"
+    onAction={() => setSearchTerm('')}
+  />
+) : (
         <div className="circuits-grid">
           {sortedCircuits.map((circuit) => (
             <CircuitCard key={circuit.id} circuit={circuit} />

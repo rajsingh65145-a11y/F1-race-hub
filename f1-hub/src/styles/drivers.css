@@ -26,26 +26,7 @@
 }
 
 /* ===== Search bar ===== */
-.search-bar {
-  width: 100%;
-  max-width: 420px;
-  padding: 12px 16px;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  font-size: 1rem;
-  transition: border-color 0.2s ease;
-}
 
-.search-bar:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-.search-bar::placeholder {
-  color: var(--color-text-muted);
-}
 
 /* ===== Team filter chips ===== */
 .filter-chips {

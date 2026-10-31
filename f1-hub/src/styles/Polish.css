@@ -1,0 +1,174 @@
+/* ===== Utilities ===== */
+
+/* Hidden on screen, but read out by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* ===== Page transition ===== */
+.page-transition {
+  animation: page-in 0.35s ease backwards;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* ===== Cards come in one after another ===== */
+:is(.drivers-grid, .teams-grid, .calendar-grid, .circuits-grid, .battle-cards, .garage-grid) > * {
+  animation: fade-up 0.45s ease backwards;
+}
+
+:is(.drivers-grid, .teams-grid, .calendar-grid, .circuits-grid, .battle-cards, .garage-grid) > :nth-child(n + 2) {
+  animation-delay: 60ms;
+}
+
+:is(.drivers-grid, .teams-grid, .calendar-grid, .circuits-grid, .battle-cards, .garage-grid) > :nth-child(n + 4) {
+  animation-delay: 120ms;
+}
+
+:is(.drivers-grid, .teams-grid, .calendar-grid, .circuits-grid, .battle-cards, .garage-grid) > :nth-child(n + 7) {
+  animation-delay: 180ms;
+}
+
+:is(.drivers-grid, .teams-grid, .calendar-grid, .circuits-grid, .battle-cards, .garage-grid) > :nth-child(n + 10) {
+  animation-delay: 240ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* ===== Press feedback on buttons ===== */
+.btn:active,
+.chip:active,
+.swap-btn:active,
+.empty-state-action:active,
+.control-btn:active:not(:disabled),
+.garage-clear:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* ===== Skeleton loader ===== */
+.page-loader {
+  padding: var(--space-lg) 0;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    #20202a 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius);
+  animation: shimmer 1.4s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-title {
+  width: 220px;
+  max-width: 70%;
+  height: 44px;
+}
+
+.skeleton-subtitle {
+  width: 320px;
+  max-width: 100%;
+  height: 18px;
+  margin: var(--space-sm) 0 var(--space-lg);
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.skeleton-card {
+  height: 220px;
+}
+
+/* ===== Empty state ===== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px var(--space-lg);
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+}
+
+.empty-state-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.empty-state-title {
+  margin-top: var(--space-md);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.empty-state-message {
+  max-width: 420px;
+  margin-top: var(--space-sm);
+  color: var(--color-text-muted);
+}
+
+.empty-state-action {
+  display: inline-block;
+  margin-top: var(--space-lg);
+  padding: 10px 22px;
+  color: #fff;
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.empty-state-action:hover {
+  filter: brightness(1.15);
+}
+
+/* ===== Reduced motion: switch every animation and transition off ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

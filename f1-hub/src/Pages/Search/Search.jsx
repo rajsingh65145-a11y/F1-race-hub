@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import SearchBar from '../../Components/SearchBar/SearchBar';
+import EmptyState from '../../Components/EmptyState/EmptyState';
 import { searchEntries } from '../../utils/searchIndex';
 import '../../styles/search.css';
 import '../../styles/controls.css';
@@ -43,9 +44,17 @@ function Search() {
         </div>
       </div>
     );
-  } else if (results.length === 0) {
-    content = <p className="empty-message">No results for “{query}”.</p>;
-  } else {
+  }  else if (results.length === 0) {
+  content = (
+    <EmptyState
+      icon="🔍"
+      title={`No results for “${query}”`}
+      message="Check the spelling, or try a driver, team, race or circuit name."
+      actionLabel="Clear search"
+      onAction={() => handleChange('')}
+    />
+  );
+} else {
     content = (
       <div>
         <p className="search-summary">

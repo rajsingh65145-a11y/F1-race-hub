@@ -1,3 +1,5 @@
+
+import '../../styles/controls.css';
 function SearchBar({ value, onChange, placeholder, id, autoFocus }) {
   return (
     <input

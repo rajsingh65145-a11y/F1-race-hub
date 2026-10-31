@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DriverCard from '../../Components/DriverCard/DriverCard';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import StandingsTable from '../../Components/StandingsTable/StandingsTable';
+import EmptyState from '../../Components/EmptyState/EmptyState';
 import { drivers, standings } from '../../data/drivers';
 import '../../styles/drivers.css';
 import '../../styles/cards.css';
@@ -30,9 +31,21 @@ function Drivers() {
 
   let content;
 
+
   if (filteredDrivers.length === 0) {
-    content = <p className="empty-message">No drivers match your search.</p>;
-  } else if (view === 'cards') {
+  content = (
+    <EmptyState
+      title="No drivers found"
+      message="Try a different name, or choose another team."
+      actionLabel="Clear filters"
+      onAction={() => {
+        setSearchTerm('');
+        setSelectedTeam('All');
+      }}
+    />
+  );
+}
+  else if (view === 'cards') {
     content = (
       <div className="drivers-grid">
         {filteredDrivers.map((driver) => (
