@@ -24,7 +24,7 @@ const Compare = lazy(() => import('./Pages/Compare/Compare'));
 const LiveRace = lazy(() => import('./Pages/LiveRace/LiveRace'));
 const Garage = lazy(() => import('./Pages/Garage/Garage'));
 const Search = lazy(() => import('./Pages/Search/Search'));
-const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+const NotFound = lazy(() => import('./Pages/NotFound/NotFound'));
 
 function App() {
   const location = useLocation();
