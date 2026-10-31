@@ -7,7 +7,7 @@ import PageLoader from './Components/PageLoader/PageLoader';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import SearchShortcut from './Components/SearchShortcut/SearchShortcut';
 import TitleManager from './Components/TitleManager/TitleManager';
-import './styles/polish.css';
+import './styles/Polish.css';
 
 // Every page is downloaded only when it is opened for the first time (code splitting)
 const Home = lazy(() => import('./Pages/Home/Home'));
