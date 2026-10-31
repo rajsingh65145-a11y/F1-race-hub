@@ -5,10 +5,11 @@ function FilterChips({ options, selected, onSelect }) {
     <div className="filter-chips">
       {options.map((option) => (
         <button
-          key={option.id}
-          className={`chip ${selected === option.id ? 'chip-active' : ''}`}
-          onClick={() => onSelect(option.id)}
-        >
+  key={option.id}
+  className={`chip ${selected === option.id ? 'chip-active' : ''}`}
+  onClick={() => onSelect(option.id)}
+  aria-pressed={selected === option.id}
+>
           {option.label}
         </button>
       ))}

@@ -1,10 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar';
 import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary';
+import Footer from './Components/Footer/Footer';
+import Navbar from './Components/Navbar/Navbar';
 import PageLoader from './Components/PageLoader/PageLoader';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import SearchShortcut from './Components/SearchShortcut/SearchShortcut';
+import TitleManager from './Components/TitleManager/TitleManager';
 import './styles/polish.css';
 
 // Every page is downloaded only when it is opened for the first time (code splitting)
@@ -22,18 +24,23 @@ const Compare = lazy(() => import('./Pages/Compare/Compare'));
 const LiveRace = lazy(() => import('./Pages/LiveRace/LiveRace'));
 const Garage = lazy(() => import('./Pages/Garage/Garage'));
 const Search = lazy(() => import('./Pages/Search/Search'));
-const NotFound = lazy(() => import('./Pages/NotFound/NotFound'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   const location = useLocation();
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <ScrollToTop />
       <SearchShortcut />
+      <TitleManager />
       <Navbar />
 
-      <main className="container">
+      <main className="container" id="main-content" tabIndex="-1">
         {/* The key changes with every page: a fresh wrapper plays the entrance
             animation again, and the error boundary starts clean */}
         <div key={location.pathname} className="page-transition">
@@ -60,6 +67,8 @@ function App() {
           </ErrorBoundary>
         </div>
       </main>
+
+      <Footer />
     </>
   );
 }

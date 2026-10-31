@@ -19,15 +19,20 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
+<nav className="navbar" aria-label="Main navigation">
+<div className="navbar-container">
         <span className="navbar-logo">F1 RACE HUB</span>
 
-        <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? 'Close' : 'Menu'}
-        </button>
+        <button
+  className="navbar-toggle"
+  onClick={() => setIsOpen(!isOpen)}
+  aria-expanded={isOpen}
+  aria-controls="main-menu"
+>
+  {isOpen ? 'Close' : 'Menu'}
+</button>
 
-        <ul className={`navbar-links ${isOpen ? 'navbar-links-open' : ''}`}>
+        <ul  id="main-menu" className={`navbar-links ${isOpen ? 'navbar-links-open' : ''}`}>
           {navLinks.map((link) => (
             <li key={link.path}>
               <NavLink

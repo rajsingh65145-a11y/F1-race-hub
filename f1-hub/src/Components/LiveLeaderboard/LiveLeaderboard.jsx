@@ -57,7 +57,9 @@ function LiveLeaderboard({ rows, drivers, favouriteId }) {  return (
                 <td>
                   <div className="standings-driver-info">
 <strong>
-  {car.driverId === favouriteId && <span className="fav-mark">♥</span>}
+  {car.driverId === favouriteId && <span className="fav-mark" role="img" aria-label="Favourite driver">
+    ♥
+  </span>}
   {getLastName(driver.name)}
 </strong>                  
   <span>{driver.team}</span>

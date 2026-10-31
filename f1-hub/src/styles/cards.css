@@ -531,3 +531,29 @@
 .race-footer-value {
   font-weight: 600;
 }
+
+/* ===== Mini stats (shared by the driver and circuit cards) ===== */
+.mini-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.mini-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-stats strong {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+}
+
+.mini-stats span {
+  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
